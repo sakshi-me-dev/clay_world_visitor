@@ -3,9 +3,9 @@ import 'package:clay_world_scholl/views/utils/constants/string_constants.dart';
 import 'package:clay_world_scholl/views/utils/image_paths.dart';
 import 'package:clay_world_scholl/views/utils/app_text_styles.dart';
 import 'package:clay_world_scholl/views/widgets/custom_button.dart';
-import 'package:clay_world_scholl/views/widgets/custom_rich_text.dart';
 import 'package:clay_world_scholl/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:clay_world_scholl/views/widgets/custome_drop_down_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -34,7 +34,7 @@ class RegisterScreen extends StatelessWidget {
             
                 // Title
                  Text(
-                  REGISTER,
+                   VISITOR_INFO,
                   style: AppTextStyle.large(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class RegisterScreen extends StatelessWidget {
             
                 const SizedBox(height: 10),
             
-                // Subtitle
+
                 const Text(
                   REGISTER_SUBTITLE,
                   style: TextStyle(
@@ -55,10 +55,12 @@ class RegisterScreen extends StatelessWidget {
                 ),
             
                 const SizedBox(height: 30),
-            
+
+                textFieldTitle("Visitor Name"),
+                const SizedBox(height: 5,),
                  CustomTextField(
                   hintText: FULL_NAME,
-                  suffixIcon: Icons.person,
+                  suffixIcon: null,
                    validator: (text) {
                     if (text!.isEmpty) {
                       return 'This field is required!';
@@ -69,10 +71,12 @@ class RegisterScreen extends StatelessWidget {
                 ),
             
                 const SizedBox(height: 20),
-            
+
+                textFieldTitle("Visitor Number"),
+                SizedBox(height: 5,),
                  CustomTextField(
                   hintText: PHONE_NUMBER,
-                  suffixIcon: Icons.phone_android,
+                  suffixIcon: null,
                   isPassword: true,
                    validator: (text) {
                     if (text!.isEmpty) {
@@ -84,10 +88,12 @@ class RegisterScreen extends StatelessWidget {
                 ),
             
                 const SizedBox(height: 20),
-            
+
+                textFieldTitle("Visitor Email",isRequired: false),
+                SizedBox(height: 5,),
                  CustomTextField(
                   hintText: EMAIL_HINT_TEXT,
-                  suffixIcon: Icons.email,
+                  suffixIcon:null,
                   isPassword: true,
                    validator: (tetx) {
                     if (tetx!.isEmpty) {
@@ -97,41 +103,16 @@ class RegisterScreen extends StatelessWidget {
                     }
                   }
                 ),
-            
+
                 const SizedBox(height: 20),
-            
-                 CustomTextField(
-                  hintText: PASSWORD,
-                  suffixIcon: Icons.lock,
-                  isPassword: true,
-                   validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }
-                ),
-            
-                const SizedBox(height: 20),
-            
-                 CustomTextField(
-                  hintText: CONFIRM_PASSWORD,
-                  suffixIcon: Icons.lock,
-                  isPassword: true,
-                   validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }
-                ),
+
+                textFieldTitle("Visitor Purpose",isRequired: true),
+                const SizedBox(height: 5,),
+                CustomDropDownField(items: ["A","B"],value: "A",onChanged: (value){},),
             
                 const SizedBox(height: 60),
-            
                 CustomButton(
-                  buttonText: REGISTER,
+                  buttonText: SUBMIT,
                   onPressed: () {
                     if (registerKey.currentState!.validate()) {
             
@@ -144,18 +125,37 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 50),
-                CustomRichText(
-                    text: ALREADY_REGISTER,
-                    actionText: LOGIN,
-                    onActionPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => LoginScreen()));
-                    })
+                // CustomRichText(
+                //     text: ALREADY_REGISTER,
+                //     actionText: LOGIN,
+                //     onActionPressed: () {
+                //       Navigator.push(context,
+                //           MaterialPageRoute(builder: (_) => LoginScreen()));
+                //     })
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget textFieldTitle(String title,{bool isRequired = true}){
+    return RichText(text: TextSpan(
+      text: title,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 16.0,
+      ),
+      children: [
+        isRequired?TextSpan(
+          text: "*",
+          style: const TextStyle(
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
+        ):TextSpan(),
+      ],
+    ));
   }
 }

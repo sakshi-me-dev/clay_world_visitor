@@ -9,3 +9,6 @@ const CONFIRM_PASSWORD = "Confirm Password";
 const DO_NOT_HAVE_ACCOUNT = "Don't have your account? ";
 const ALREADY_REGISTER = "Already Register? ";
 const REGISTER = "Register";
+const SUBMIT = "Submit";
+const VISITOR_INFO = "Visitor Info";
+

@@ -85,7 +85,10 @@ class LoginScreen extends StatelessWidget {
                 CustomButton(
                   buttonText: LOGIN,
                   onPressed: () {
-                    if (loginKey.currentState!.validate()) {}
+    Navigator.push(context,
+    MaterialPageRoute(builder: (_) => RegisterScreen()));
+
+                    // if (loginKey.currentState!.validate()) {}
                   },
                   suffixIcon: const Icon(
                     Icons.arrow_forward_ios_outlined,
@@ -93,14 +96,8 @@ class LoginScreen extends StatelessWidget {
                     size: 18,
                   ),
                 ),
-                const SizedBox(height: 50),
-                CustomRichText(
-                    text: DO_NOT_HAVE_ACCOUNT,
-                    actionText: REGISTER,
-                    onActionPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => RegisterScreen()));
-                    })
+
+
               ],
             ),
           ),

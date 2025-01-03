@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final IconData suffixIcon;
+  final IconData? suffixIcon;
   final bool isPassword;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
