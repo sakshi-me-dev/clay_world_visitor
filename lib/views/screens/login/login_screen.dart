@@ -1,11 +1,11 @@
-import 'package:clay_world_scholl/views/screens/register/register_screen.dart';
 import 'package:clay_world_scholl/views/utils/constants/string_constants.dart';
 import 'package:clay_world_scholl/views/utils/image_paths.dart';
 import 'package:clay_world_scholl/views/utils/app_text_styles.dart';
 import 'package:clay_world_scholl/views/widgets/custom_button.dart';
-import 'package:clay_world_scholl/views/widgets/custom_rich_text.dart';
 import 'package:clay_world_scholl/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+
+import '../home/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final loginKey = GlobalKey<FormState>();
@@ -31,17 +31,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                 Text(
-                  LOGIN,
+                Text(
+                  login,
                   style: AppTextStyle.large(),
                   textAlign: TextAlign.center,
-                ),  
-            
+                ),
+
                 const SizedBox(height: 10),
-            
+
                 // Subtitle
-                 Text(
-                  LOGIN_SUBTITLE,
+                Text(
+                  loginSubtitle,
                   style: AppTextStyle.normal(
                     fontSize: 16,
                     color: Colors.grey,
@@ -49,46 +49,39 @@ class LoginScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
 
-
                 const SizedBox(height: 30),
-            
-                // Email TextField
                 CustomTextField(
-                  hintText: EMAIL_HINT_TEXT,
+                  hintText: emailHintText,
                   suffixIcon: Icons.email,
-                  validator: (tetx) {
-                    if (tetx!.isEmpty) {
+                  validator: (text) {
+                    if (text!.isEmpty) {
                       return 'This field is required!';
                     } else {
                       return null;
                     }
                   },
                 ),
-            
+
                 const SizedBox(height: 20),
-            
-                // Password TextField
-                 CustomTextField(
-                  hintText: PASSWORD,
-                  suffixIcon: Icons.lock,
-                  isPassword: true,
-                   validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }
-                  
-                ),
+
+                CustomTextField(
+                    hintText: password,
+                    suffixIcon: Icons.lock,
+                    isPassword: true,
+                    validator: (text) {
+                      if (text!.isEmpty) {
+                        return 'This field is required!';
+                      } else {
+                        return null;
+                      }
+                    }),
                 const SizedBox(height: 60),
                 CustomButton(
-                  buttonText: LOGIN,
+                  buttonText: login,
                   onPressed: () {
-    Navigator.push(context,
-    MaterialPageRoute(builder: (_) => RegisterScreen()));
-
-                    // if (loginKey.currentState!.validate()) {}
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => const HomeScreen()));
+                     if (loginKey.currentState!.validate()) {}
                   },
                   suffixIcon: const Icon(
                     Icons.arrow_forward_ios_outlined,
@@ -96,8 +89,6 @@ class LoginScreen extends StatelessWidget {
                     size: 18,
                   ),
                 ),
-
-
               ],
             ),
           ),
