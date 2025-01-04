@@ -1,9 +1,10 @@
 import 'package:clay_world_scholl/views/utils/constants/string_constants.dart';
-import 'package:clay_world_scholl/views/utils/app_text_styles.dart';
 import 'package:clay_world_scholl/views/widgets/custom_button.dart';
 import 'package:clay_world_scholl/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_world_scholl/views/widgets/custom_drop_down_field.dart';
+
+import '../../widgets/CustomAnimationWidget.dart';
 
 class SubmissionScreen extends StatelessWidget {
   SubmissionScreen({super.key});
@@ -13,112 +14,104 @@ class SubmissionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFFD7D9),
+        title: const Padding(
+          padding:  EdgeInsets.only(left: 70),
+          child: Text(
+                    "Visitor Info",
+                    style: TextStyle(
+          fontWeight: FontWeight.bold,
+                    ),
+                  ),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
         child: Form(
           key: registerKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                visitorInfo,
-                style: AppTextStyle.large(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
+          child: SingleChildScrollView(
+            child: CustomAnimationWidget(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  textFieldTitle("Visitor Name"),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CustomTextField(
+                      hintText: fullName,
+                      suffixIcon: null,
+                      validator: (text) {
+                        if (text!.isEmpty) {
+                          return 'This field is required!';
+                        } else {
+                          return null;
+                        }
+                      }),
+                  const SizedBox(height: 20),
+                  textFieldTitle("Visitor Number"),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CustomTextField(
+                      hintText: phoneNumber,
+                      suffixIcon: null,
+                      isPassword: true,
+                      validator: (text) {
+                        if (text!.isEmpty) {
+                          return 'This field is required!';
+                        } else {
+                          return null;
+                        }
+                      }),
+                  const SizedBox(height: 20),
+                  textFieldTitle("Visitor Email", isRequired: false),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CustomTextField(
+                      hintText: emailHintText,
+                      suffixIcon: null,
+                      isPassword: true,
+                      validator: (text) {
+                        if (text!.isEmpty) {
+                          return 'This field is required!';
+                        } else {
+                          return null;
+                        }
+                      }),
+                  const SizedBox(height: 20),
+                  textFieldTitle("Visitor Purpose", isRequired: true),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CustomDropDownField(
+                    items: const [
+                      "Curriculum Support",
+                      "Admissions",
+                      "Academic Competitions",
+                      "other "
+                    ],
+                    value: "Curriculum Support",
+                    onChanged: (value) {},
+                  ),
+                  const SizedBox(height: 60),
+                  CustomButton(
+                    buttonText: submit,
+                    onPressed: () {
+                      if (registerKey.currentState!.validate()) {}
+                    },
+                    suffixIcon: const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                  ),
+                ],
               ),
-
-              const SizedBox(height: 10),
-
-              const Text(
-                registerSubtitle,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.center,
-              ),
-
-              const SizedBox(height: 30),
-
-              textFieldTitle("Visitor Name"),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomTextField(
-                  hintText: fullName,
-                  suffixIcon: null,
-                  validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }),
-
-              const SizedBox(height: 20),
-
-              textFieldTitle("Visitor Number"),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomTextField(
-                  hintText: phoneNumber,
-                  suffixIcon: null,
-                  isPassword: true,
-                  validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }),
-
-              const SizedBox(height: 20),
-
-              textFieldTitle("Visitor Email", isRequired: false),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomTextField(
-                  hintText: emailHintText,
-                  suffixIcon: null,
-                  isPassword: true,
-                  validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'This field is required!';
-                    } else {
-                      return null;
-                    }
-                  }),
-
-              const SizedBox(height: 20),
-
-              textFieldTitle("Visitor Purpose", isRequired: true),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomDropDownField(
-                items: const ["Curriculum Support", "Admissions", "Academic Competitions", "other "],
-                value: "Curriculum Support",
-                onChanged: (value) {},
-              ),
-
-              const SizedBox(height: 60),
-              CustomButton(
-                buttonText: submit,
-                onPressed: () {
-                  if (registerKey.currentState!.validate()) {}
-                },
-                suffixIcon: const Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  color: Colors.white,
-                  size: 18,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -132,7 +125,7 @@ class SubmissionScreen extends StatelessWidget {
           text: TextSpan(
         text: title,
         style: const TextStyle(
-          color: Colors.black,
+          color: Color(0xFF0F0F0F),
           fontSize: 16.0,
         ),
         children: [
