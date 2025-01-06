@@ -36,7 +36,7 @@ class CustomButton extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           suffixIcon??const Icon(
-            Icons.arrow_forward,
+            Icons.arrow_forward_ios_sharp,
             color: Colors.white,
           ),
         ],

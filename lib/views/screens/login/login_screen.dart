@@ -5,7 +5,7 @@ import 'package:clay_world_scholl/views/widgets/custom_button.dart';
 import 'package:clay_world_scholl/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../widgets/CustomAnimationWidget.dart';
+import '../../widgets/custom_animation_widget.dart';
 import '../home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen>
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      if (userCredential.user != null) {
+      if (userCredential.user != null &&  mounted) {
         Navigator.push(
             context,
             MaterialPageRoute(

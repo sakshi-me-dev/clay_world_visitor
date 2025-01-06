@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/cupertino.dart';
+
 
 class CustomAnimationWidget extends StatefulWidget {
   final Widget child; // The widget to animate

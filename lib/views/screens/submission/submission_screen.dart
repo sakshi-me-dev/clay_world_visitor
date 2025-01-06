@@ -4,7 +4,7 @@ import 'package:clay_world_scholl/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_world_scholl/views/widgets/custom_drop_down_field.dart';
 
-import '../../widgets/CustomAnimationWidget.dart';
+import '../../widgets/custom_animation_widget.dart';
 
 class SubmissionScreen extends StatelessWidget {
   SubmissionScreen({super.key});
