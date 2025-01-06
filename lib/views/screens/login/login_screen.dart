@@ -167,6 +167,7 @@ class _LoginScreenState extends State<LoginScreen>
                       const SizedBox(height: 70),
                       ValueListenableBuilder(
                         valueListenable: isLoadingNotifier,
+                        // add CircularProgressIndicator
                         builder: (context, isLoading, child) => isLoading
                             ? const Center(
                                 child: CircularProgressIndicator(),
