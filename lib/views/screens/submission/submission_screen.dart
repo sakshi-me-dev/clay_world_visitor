@@ -41,6 +41,7 @@ class SubmissionScreen extends StatelessWidget {
                     height: 5,
                   ),
                   CustomTextField(
+                      controller: TextEditingController(),
                       hintText: fullName,
                       suffixIcon: null,
                       validator: (text) {
@@ -56,6 +57,7 @@ class SubmissionScreen extends StatelessWidget {
                     height: 5,
                   ),
                   CustomTextField(
+                    controller: TextEditingController(),
                       hintText: phoneNumber,
                       suffixIcon: null,
                       isPassword: true,
@@ -72,6 +74,7 @@ class SubmissionScreen extends StatelessWidget {
                     height: 5,
                   ),
                   CustomTextField(
+                      controller: TextEditingController(),
                       hintText: emailHintText,
                       suffixIcon: null,
                       isPassword: true,
