@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "779322640692",
+    "project_id": "clayworld-e3690",
+    "storage_bucket": "clayworld-e3690.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779322640692:android:3439e795bc988ebd4e7d61",
+        "android_client_info": {
+          "package_name": "com.example.clay_world_scholl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvf2GZht11Nu7scyROghD1NOt8DHTYpRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779322640692:android:fc03a7efbf057be24e7d61",
+        "android_client_info": {
+          "package_name": "in.clayworldschool.visitors"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvf2GZht11Nu7scyROghD1NOt8DHTYpRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

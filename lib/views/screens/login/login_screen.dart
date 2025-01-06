@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen>
                       CustomTextField(
                         controller: emailController,
                         hintText: emailHintText,
-                        suffixIcon: Icon(Icons.email),
+                        suffixIcon: const Icon(Icons.email),
                         validator: (text) {
                           if (text == null || text.isEmpty) {
                             return 'This field is required!';
