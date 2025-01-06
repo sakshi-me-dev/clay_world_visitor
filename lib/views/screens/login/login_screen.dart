@@ -42,14 +42,13 @@ class _LoginScreenState extends State<LoginScreen>
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      if(userCredential.user != null){
+      if (userCredential.user != null) {
         Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => HomeScreen(),
             ));
       }
-
     } on FirebaseAuthException catch (e) {
       String errorMessage = '';
       if (e.code == 'user-not-found') {
@@ -165,19 +164,24 @@ class _LoginScreenState extends State<LoginScreen>
                           );
                         },
                       ),
-
                       const SizedBox(height: 70),
                       ValueListenableBuilder(
                         valueListenable: isLoadingNotifier,
-                        builder: (context, isLoading, child) => CustomButton(
-                          backgroundColor: const Color(0xFFEF2B42),
-                          buttonText: 'Login',
-                          onPressed: isLoading ? null :(){
-                            if(loginKey.currentState!.validate()){
-                              login();
-                            }
-                          },
-                        ),
+                        builder: (context, isLoading, child) => isLoading
+                            ? const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            : CustomButton(
+                                backgroundColor: const Color(0xFFEF2B42),
+                                buttonText: 'Login',
+                                onPressed: isLoading
+                                    ? null
+                                    : () {
+                                        if (loginKey.currentState!.validate()) {
+                                          login();
+                                        }
+                                      },
+                              ),
                       ),
                     ],
                   ),
