@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
   final void Function()? onPressed;
-   CustomHeader({super.key, required this.onPressed, });
+   const CustomHeader({super.key, required this.onPressed, });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class CustomHeader extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: StreamBuilder(stream: VisitorController().getVisitorStream(""), builder: (_,snapshot){
                 if(snapshot.hasData){
-                  return Column(
+                  return const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -51,7 +51,7 @@ class CustomHeader extends StatelessWidget {
                     ],
                   );
                 }else{
-                  return Column(
+                  return const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
