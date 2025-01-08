@@ -149,7 +149,9 @@ class _SubmissionScreenState extends State<SubmissionScreen> {
                         );
                         var visitor = await VisitorController().addVisitor(data);
                         await VisitorController().updateVisitorId(visitor.id);
+                       if(context.mounted){
                         Navigator.pop(context);
+                      }
                       }
                     },
                     suffixIcon: const Icon(
