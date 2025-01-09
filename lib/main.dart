@@ -1,5 +1,4 @@
 import 'package:clay_world_scholl/firebase_options.dart';
-import 'package:clay_world_scholl/views/screens/login/login_screen.dart';
 import 'package:clay_world_scholl/views/screens/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

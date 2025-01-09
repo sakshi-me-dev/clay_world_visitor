@@ -154,7 +154,9 @@ class _SubmissionScreenState extends State<SubmissionScreen> {
                         // add data in database
                         var visitor = await VisitorController().addVisitor(data);
                         await VisitorController().updateVisitorId(visitor.id);
+                       if(context.mounted){
                         Navigator.pop(context);
+                      }
                       }
                     },
                     suffixIcon: const Icon(
