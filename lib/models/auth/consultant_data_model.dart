@@ -19,23 +19,23 @@ class ConsultantDataModel {
     this.docId,
     this.name,
     this.email,
-    this.createdAt,
-    this.updatedAt,
+    // this.createdAt,
+    // this.updatedAt,
   });
 
   factory ConsultantDataModel.fromJson(Map<String, dynamic> json) => ConsultantDataModel(
     docId: json["docId"],
     name: json["name"],
     email: json["email"],
-    createdAt: json["created_at"],
-    updatedAt: json["updated_at"],
+    // createdAt: json["created_at"],
+    // updatedAt: json["updated_at"],
   );
 
   Map<String, dynamic> toJson() => {
     "docId": docId,
     "name": name,
     "email": email,
-    "created_at": createdAt,
-    "updated_at": updatedAt,
+    // "created_at": createdAt,
+    // "updated_at": updatedAt,
   };
 }

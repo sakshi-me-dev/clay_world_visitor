@@ -1,9 +1,10 @@
+import 'package:clay_world_scholl/controllers/auth/auth_controller.dart';
 import 'package:clay_world_scholl/controllers/visitor/visitor_controller.dart';
 import 'package:flutter/material.dart';
 
-class CustomHeader extends StatelessWidget {
+class CustomAppBar extends StatelessWidget {
   final void Function()? onPressed;
-   const CustomHeader({super.key, required this.onPressed, });
+   const CustomAppBar({super.key, this.onPressed, });
 
   @override
   Widget build(BuildContext context) {
@@ -16,34 +17,35 @@ class CustomHeader extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          onPressed != null?Padding(
             padding: const EdgeInsets.only(top: 10),
             child: IconButton(
               icon: const Icon(Icons.menu, color: Color(0xFF0F0F0F),size: 30,),
               onPressed: onPressed,
             ),
-          ),
+          ):Container(),
           const SizedBox(width: 10),
           // Title and Email
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 10),
-              child: StreamBuilder(stream: VisitorController().getVisitorStream(""), builder: (_,snapshot){
+              child: FutureBuilder(future: AuthController().getUserInfo(), builder: (_,snapshot){
                 if(snapshot.hasData){
-                  return const Column(
+                  var userData = snapshot.data;
+                  return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Shophia Khan',
-                        style: TextStyle(
+                        userData?.name??"Your name",
+                        style: const TextStyle(
                           color: Color(0xFF0F0F0F),
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        'sakshisingh@gmail.com',
-                        style: TextStyle(
+                        userData?.email??"your@gmail.com",
+                        style: const TextStyle(
                           color: Color(0xFF0F0F0F),
                           fontSize: 14,
                         ),
@@ -55,7 +57,7 @@ class CustomHeader extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Shophia Khan',
+                        "Your name",
                         style: TextStyle(
                           color: Color(0xFF0F0F0F),
                           fontSize: 18,
@@ -63,7 +65,7 @@ class CustomHeader extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'sakshisingh@gmail.com',
+                        "your@gmail.com",
                         style: TextStyle(
                           color: Color(0xFF0F0F0F),
                           fontSize: 14,

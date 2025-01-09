@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomHeader(
+            CustomAppBar(
               onPressed: () {
                 if (scaffoldKey.currentState!.isDrawerOpen) {
                   scaffoldKey.currentState!.closeDrawer();
