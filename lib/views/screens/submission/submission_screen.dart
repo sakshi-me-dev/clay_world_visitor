@@ -121,6 +121,8 @@ class _SubmissionScreenState extends State<SubmissionScreen> {
                   const SizedBox(
                     height: 5,
                   ),
+
+                 // user can add the other value by customtextfield
                  selectedPurpose == purposes.last? CustomTextField(
                       controller: otherController,
                       hintText: otherPurposeHintText,
@@ -139,14 +141,17 @@ class _SubmissionScreenState extends State<SubmissionScreen> {
                     buttonText: submit,
                     onPressed: () async{
                       if (visitorKey.currentState!.validate()) {
+
                         var data = VisitorDataModel(
                           name: nameController.text.trim(),
                           email: emailController.text.trim(),
                           number: numberController.text.trim(),
                           createdAt: DateTime.now().toString(),
                             updatedAt: DateTime.now().toString(),
+                          // selected person manually  add the value /  pre-defined  option
                           option: selectedPurpose == purposes.last?otherController.text.trim():selectedPurpose
                         );
+                        // add data in database
                         var visitor = await VisitorController().addVisitor(data);
                         await VisitorController().updateVisitorId(visitor.id);
                         Navigator.pop(context);
