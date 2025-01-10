@@ -2,7 +2,6 @@ import 'package:clay_world_scholl/views/screens/login/login_screen.dart';
 import 'package:clay_world_scholl/views/widgets/custom_appbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../screens/home/home_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -15,20 +14,6 @@ class CustomDrawer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const CustomAppBar(),
-          // const UserAccountsDrawerHeader(
-          //   accountName: Text(
-          //     "Sophia Khan",
-          //     style: TextStyle(color: Color(0xFF0F0F0F), fontWeight: FontWeight.bold,),
-          //   ),
-          //   accountEmail: Text(
-          //     "Sophiakhan@gmail.com",
-          //     style: TextStyle(color: Color(0xFF0F0F0F)),
-          //   ),
-          //   currentAccountPicture: CircleAvatar(
-          //     child: Icon(Icons.person, size: 30),
-          //   ),
-          //   decoration: BoxDecoration(color: Color(0xFFFFD7D9)),
-          // ),
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Home'),

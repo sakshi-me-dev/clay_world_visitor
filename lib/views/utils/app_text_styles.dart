@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class AppTextStyle {
   static TextStyle bold({
     double fontSize = 16.0,

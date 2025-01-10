@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-
 class CustomAnimationWidget extends StatefulWidget {
   final Widget child; // The widget to animate
   final Duration duration; // Animation duration
@@ -14,7 +13,6 @@ class CustomAnimationWidget extends StatefulWidget {
     this.beginOffset = const Offset(1.0, 0.0), // Default start offset
     this.endOffset = Offset.zero, // Default end offset
   });
-
   @override
   CustomAnimationWidgetState createState() => CustomAnimationWidgetState();
 }
@@ -31,7 +29,6 @@ class CustomAnimationWidgetState extends State<CustomAnimationWidget>
       vsync: this,
       duration: widget.duration,
     );
-
     _offsetAnimation = Tween<Offset>(
       begin: widget.beginOffset,
       end: widget.endOffset,

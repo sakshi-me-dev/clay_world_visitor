@@ -6,22 +6,10 @@ import '../submission/submission_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SubmissionScreen(),
-              ));
-        },
-        child: const Icon(Icons.add),
-      ),
       key: scaffoldKey,
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(

@@ -5,9 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthController {
   final _fireStore = FirebaseFirestore.instance;
   final _consultantCollectionName = "consultants";
-
   var userId = FirebaseAuth.instance.currentUser?.uid;
-
   Future<ConsultantDataModel> getUserInfo()async{
     var data = await _fireStore.collection(_consultantCollectionName).doc(userId).get();
     print(data.data()!['name']);

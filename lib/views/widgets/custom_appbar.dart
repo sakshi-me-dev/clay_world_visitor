@@ -1,5 +1,4 @@
 import 'package:clay_world_scholl/controllers/auth/auth_controller.dart';
-import 'package:clay_world_scholl/controllers/visitor/visitor_controller.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
